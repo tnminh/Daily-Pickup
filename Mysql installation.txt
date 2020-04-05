@@ -14,3 +14,20 @@ How to config secure mode for root user:
 (need to do after changing authentication mode to native password)
 run: mysql_secure_installation
 alternative way: https://stackoverflow.com/questions/23739603/unable-to-set-password-for-rootlocalhost-in-mysql
+
+How to change host can use root to access:
+step 1:
+UPDATE mysql.user SET Host='%' WHERE Host='localhost' AND User='root';
+FLUSH PRIVILEGES;
+step 2:
+disable: bind-address = 127.0.0.1 
+or change: bind-address = 0.0.0.1
+in mysql file config
+
+#NOTE: 
+the file config order can be found by command: mysql --help
+the later file config will overite config of the former file
+
+----
+
+
