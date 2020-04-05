@@ -2,7 +2,8 @@ After install mysql, the default authentication mode is auth_socket.
 
 the root user can access to mysql without password
 to change that:
-UPDATE mysql.user SET plugin = 'mysql_native_password' WHERE User = 'root';
+UPDATE mysql.user SET plugin = 'mysql_native_password', authentication_string = PASSWORD('password') WHERE User = 'root';
+#note : have to set password included to take effect
 flush privileges;
 
 How to config secure mode for root user:
