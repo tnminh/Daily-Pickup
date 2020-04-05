@@ -1,3 +1,7 @@
+mysql use systemV to bootstrap services
+To start mysql using:
+service mysql start( or service mysqld start, depend on versions)
+
 After install mysql, the default authentication mode is auth_socket.
 
 the root user can access to mysql without password
