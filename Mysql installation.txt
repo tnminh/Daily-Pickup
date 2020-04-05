@@ -5,7 +5,7 @@ to change that:
 UPDATE mysql.user SET plugin = 'mysql_native_password' WHERE User = 'root';
 flush privileges;
 
-How to set password for root user:
-(need to do before changing authentication mode to native password)
+How to config secure mode for root user:
+(need to do after changing authentication mode to native password)
 run: mysql_secure_installation
 alternative way: https://stackoverflow.com/questions/23739603/unable-to-set-password-for-rootlocalhost-in-mysql
