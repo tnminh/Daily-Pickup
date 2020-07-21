@@ -1,0 +1,152 @@
+# to init go module simply run:
+
+go mod init example.com/hello
+
+#for automatically download package in module, run:
+
+go build
+
+#the command go buil will download and add require dependency in to go.mod file
+
+#The go.mod file structure:
+
+"""
+module example.com/hello
+
+go 1.12
+
+require (
+    golang.org/x/text v0.3.0 // indirect
+    rsc.io/quote v1.5.2
+)
+"""
+#local import:
+After init go module, the local import path template will be:
+{modulename}/{path is same level with go.mod}, also the nested package
+will use the same template package(root path is {modulename})
+*note: the first statement of every go file is :
+package {packagename}
+
+#to download package in to $GOPATH run:
+go get {package}
+
+#Go package
+every go file have to belong to the package that have the same name with the folder of go file,except file contain main function
+
+
+##Go program
+to run go program, run :
+"""
+go run {filename}.go
+"""
+if using go module, you have to cd to directory contain go.mod
+to run go file.
+
+Every go file use to run with "go run" command have to place under package main and have to contain
+main function (doesn't like python):
+
+"""
+func main() {
+	println("hello")
+}
+"""
+*Note the package "main" doest not have to place under directory "main"
+
+#Every go file cant contain directly execution statements( statements don't belong any function scope) unless it was assigned to variables (so stupid)
+For examples:
+
+"""
+math.Abs(-10)  => error
+var result2 = math.Abs(-10) =>working
+"""
+
+#Declare variables (look like js):
+multiple ways:
+"""
+var x int
+var a,b,c int
+var a,b= 1,2
+var x = 10 (x will have type depend on values are granted, in this case is int)
+"""
+Inside function scope,we can use short hand style for declaring variables and assigning value included:
+
+"""
+a,b:= 1,2
+"""
+# declare array:
+"""
+var arr [10]int
+arr :=[2]int{1,2}  // inside function scope
+"""
+# declare map
+"""
+var mp map[string]int
+"""
+
+#function:
+func dummy(x int,y int) (int,int){
+    return x,y
+}
+
+var a,b = dummy(x,y)
+
+#return multiple value
+
+#Loop statements (like js,java):
+for i:=0;i<10;i++{
+}
+#while
+for x<10 {
+}
+#logical operator look exactly like java: &&, ||
+
+
+#Class style for GoLang:
+"""
+type Vertex struct {
+	X, Y float64
+}
+func (a *Vertex) increment(){
+	a.X++
+	a.Y ++
+}
+func (a Vertex) get(){
+	return a.X,a.Y
+}
+"""
+*Note
+for mutation props of object, it's require to define input as pointer, like function "increment" above
+
+
+#construct new object:
+"""
+//return pointer of object
+var vertex *Vertex = new(Vertex)
+vertex:= new(Vertex)
+//return value of object
+var vertex Vertex = Vertex{}
+vertex:=Vertex{}
+"""
+
+#Pointer
+"""
+//retrive pointer from value
+var p = &vertex
+//retrive value from pointer
+var v= *vertex
+
+"""
+
+#Interface
+"""
+type Shape interface {
+	increment()
+}
+var vertex Shape = Vertex{}
+vertex.increment()
+
+"""
+
+
+
+
