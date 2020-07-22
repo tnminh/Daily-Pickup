@@ -1,0 +1,12 @@
+#redirect stdout to file:
+command >> log.txt 2>&1
+
+#linux screen:
+-list screen:
+screen -ls
+-attach screen:
+screen -r {screenid/session_name}
+-start new screen session:
+screen -S session_name
+-detach current session:
+ctrl a+d
