@@ -10,3 +10,7 @@ screen -r {screenid/session_name}
 screen -S session_name
 -detach current session:
 ctrl a+d
+-remove screen
+screen -X -S [ID/NAME] quit
+-remove dead screen
+screen -wipe
