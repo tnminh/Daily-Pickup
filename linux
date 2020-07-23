@@ -14,3 +14,5 @@ ctrl a+d
 screen -X -S [ID/NAME] quit
 -remove dead screen
 screen -wipe
+-detach screen attached from outside:
+sreen -r -d [id/name]
