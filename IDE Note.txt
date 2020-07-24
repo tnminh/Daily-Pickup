@@ -1,0 +1,4 @@
+#VSCODE:
+beautify json:
+install plugin beautify json:
+ctrl shift P -> select beauty json
