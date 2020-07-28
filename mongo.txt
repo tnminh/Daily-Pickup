@@ -2,3 +2,5 @@ start single instance mongodb on docker with oplog enabled:
 
 docker run -it -e MONGO_INITDB_ROOT_PASSWORD=123456 -e MONGO_INITDB_ROOT_USERNAME=root -p 27017:27017 mongo --oplogSize 1024 --replSet rs0
 (ref : https://tuttlem.github.io/2014/06/13/how-to-setup-an-oplog-on-a-single-mongodb-instance.html)
+
+mongodb uri example : mongodb://root:123456@localhost:27017/?authSource=admin
