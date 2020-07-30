@@ -4,3 +4,6 @@ docker run -it -e MONGO_INITDB_ROOT_PASSWORD=123456 -e MONGO_INITDB_ROOT_USERNAM
 (ref : https://tuttlem.github.io/2014/06/13/how-to-setup-an-oplog-on-a-single-mongodb-instance.html)
 
 mongodb uri example : mongodb://root:123456@localhost:27017/?authSource=admin
+
+#mongoimport (ignore header)
+mongoimport -d db -c collection --type csv --username root --password 123456  --authenticationDatabase admin  --file /tmp/data.csv --headerline
