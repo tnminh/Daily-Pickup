@@ -16,3 +16,15 @@ screen -X -S [ID/NAME] quit
 screen -wipe
 -detach screen attached from outside:
 sreen -r -d [id/name]
+
+
+#monitor disk io
+sudo apt-get install iotop
+sudo iotop
+
+#monitor port 
+apt-get install lsof
+lsof -i tcp:80
+
+# watch file:
+tail -n {number of row} file.txt
