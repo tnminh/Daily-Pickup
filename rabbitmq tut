@@ -1,0 +1,33 @@
+1. Basic concept
+The Exchange
+the layer interact with publisher and have responsibility to transfer message to others binded queue.
+the exchange act like a load balancer with queues was binded to it, it doesn't store any message.
+The Queue
+the layer interact with consumer , have responsibility to take message delivered from exchange to consumer.
+
+
+2. Configuration
+Routingkey: the key linked between exchange and queue ( not required). If it was defined on both queue and publisher. the message's published
+to exchange only transfer to the queue with rountingkey.
+
+Consumer prefetch count(Qos):
+the property to ensure no more than defined number message to deliver to consumer. if it wasn't set rbmq will try to deliver message as much as posible to consumer
+(NOTE: maybe crash consumer, need recheck)
+
+Persistent Configuration
+(define on both queue and consumer)  rabbitmq queue will stored message message on disk as soon as it recieve message from exchange.
+if it was define on consumer it make the consumer consume the message on disk when rabbitmq crash or restart.
+
+
+3. Others
+Multiple consumer per queue:
+rbmq will use round robin strategy to round message to each queue. if one consumer lost connection, rbmq will redeliver message to other remain queue with same strategy
+
+Non ack message metric(on UI): the messages delivered to consumer but weren't finish consumed.
+
+Nack vs Reject: Nack is upgraded version of Reject it support batching 
+Nack commonly use on scenario which need to requeue message( make rbmq redeliver msg) while keeping connection with consumer ( if consumer lost connection it automatically requeue mesage)
+Beware using this when process ordered message and prefetch count( need recheck and tested)
+
+
+
