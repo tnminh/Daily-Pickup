@@ -29,5 +29,5 @@ Nack vs Reject: Nack is upgraded version of Reject it support batching
 Nack commonly use on scenario which need to requeue message( make rbmq redeliver msg) while keeping connection with consumer ( if consumer lost connection it automatically requeue mesage)
 Beware using this when process ordered message and prefetch count( need recheck and tested)
 
-
+Consume message timeout: https://stackoverflow.com/questions/30546977/is-there-a-timeout-for-acking-rabbitmq-messages
 
