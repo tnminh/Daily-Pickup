@@ -1,0 +1,96 @@
+
+Text analysis guide:
+
+Mapping: map field of input data with specific type, analyzer
+
+Text analyzer each analyzer contain tokenizer and token filter
+
+Tonkenizer: split input word into one or some token 
+ 
+Token filter: Token filters accept a stream of tokens from a tokenizer and can modify tokens (eg lowercasing), delete tokens (eg remove stopwords) or add tokens (eg synonyms).
+
+
+
+PUT /my-index-000001/
+{
+  "settings": {
+    "analysis": {
+      "analyzer": {
+        "my_analyzer": {
+          "tokenizer": "letter"
+
+        }
+      }
+
+    }
+
+  },
+ "mappings":{
+       "properties":{
+            "name": {
+                "type": "text",
+                "analyzer": "my_analyzer"
+            }
+      }
+   }
+
+}
+
+
+
+Delete /my-index-000001
+{
+  
+}
+
+PUT /my-index-000001/_doc/1
+{
+  "name": "The 2 QUICK Brown-Foxes jumped over the lazy dog's bone."
+}
+
+
+
+GET my-index-000001/_search
+{
+  "query": {
+    "match": {
+      "name": "Brown-Foxes"
+    }
+  }
+}
+GET my-index-000001/_search
+{
+    "query": {
+        "match_all": {}
+    }
+}
+
+GET my-index-000001/_search
+{
+  "query": {
+    "match": {
+      "name": "foxes"
+    }
+  }
+}
+
+
+POST /my-index-000001/_close
+
+PUT /my-index-000001/_settings
+{
+    "analysis": {
+      "analyzer": {
+        "my_analyzer": {
+          "tokenizer": "letter",
+            "filter" : ["lowercase"]
+
+        }
+      }
+
+    }
+
+  
+}
+
+POST /my-index-000001/_open
