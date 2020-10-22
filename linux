@@ -28,3 +28,15 @@ lsof -i tcp:80
 
 # watch file:
 tail -n {number of row} file.txt
+
+extract file
+tar -xf file.tar
+
+#disk utils:
+df -h // display disk capacity in gb
+
+#grant permission on file for other users:
+chmod a+x+w+r file
+
+change default linux editor:
+export EDITOR=vim
