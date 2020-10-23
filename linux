@@ -40,3 +40,6 @@ chmod a+x+w+r file
 
 change default linux editor:
 export EDITOR=vim
+
+#local forward ( forward host and port on local machine to host and port on remote machine using ssh )
+ssh -i privatekey -L 9021:localhost:9021 remoteuser@remotehost
