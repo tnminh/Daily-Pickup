@@ -16,7 +16,8 @@ screen -X -S [ID/NAME] quit
 screen -wipe
 -detach screen attached from outside:
 sreen -r -d [id/name]
-
+kill screen:
+screen -X -S [session # you want to kill] quit
 
 #monitor disk io
 sudo apt-get install iotop
