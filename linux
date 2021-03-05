@@ -35,6 +35,7 @@ tar -xf file.tar
 
 #disk utils:
 df -h // display disk capacity in gb
+du -hd1 {path} display file,folder with size
 
 #grant permission on file for other users:
 chmod a+x+w+r file
